@@ -1,0 +1,39 @@
+{
+  "name": "interview-frontend-assignment",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint --max-warnings=0 --ext .js,.jsx,.ts,.tsx,.vue --ignore-path .gitignore . && lerna run lint",
+    "type-check": "lerna run type-check",
+    "test": "lerna run test",
+    "build": "lerna run build",
+    "test-all": "yarn format:check && yarn lint && yarn type-check && yarn test && yarn build",
+    "start:api": "yarn workspace @iaf/api start",
+    "start:app-react": "yarn workspace @iaf/app-react start",
+    "start:app-vue": "yarn workspace @iaf/app-vue start"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "4.6.0",
+    "@typescript-eslint/parser": "4.6.0",
+    "eslint": "7.12.1",
+    "eslint-config-prettier": "6.15.0",
+    "husky": "4.3.0",
+    "lerna": "3.22.1",
+    "lint-staged": "10.5.0",
+    "prettier": "2.1.2",
+    "typescript": "4.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}

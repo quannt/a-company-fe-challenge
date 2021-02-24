@@ -1,0 +1,46 @@
+{
+  "name": "@iaf/app-vue",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate",
+    "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
+    "lint": "yarn lint:style",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@iaf/api": "1.0.0",
+    "@nuxt/typescript-runtime": "2.0.0",
+    "@nuxtjs/fontawesome": "1.1.2",
+    "core-js": "3.6.5",
+    "nuxt": "2.14.7",
+    "vue": "2.6.12"
+  },
+  "devDependencies": {
+    "@babel/core": "7.12.3",
+    "@nuxt/types": "2.14.7",
+    "@nuxt/typescript-build": "2.0.3",
+    "@nuxtjs/eslint-config": "4.0.0",
+    "@nuxtjs/eslint-config-typescript": "4.0.0",
+    "@nuxtjs/eslint-module": "3.0.0",
+    "@nuxtjs/stylelint-module": "4.0.0",
+    "@testing-library/vue": "5.1.0",
+    "@vue/test-utils": "1.1.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "10.1.0",
+    "babel-jest": "26.6.1",
+    "eslint-config-prettier": "6.15.0",
+    "eslint-plugin-nuxt": "1.0.0",
+    "jest": "26.6.1",
+    "stylelint": "13.7.2",
+    "stylelint-config-prettier": "8.0.2",
+    "stylelint-config-standard": "20.0.0",
+    "ts-jest": "26.4.3",
+    "vue-jest": "3.0.7",
+    "vue-template-compiler": "2",
+    "webpack": "4.44.2"
+  }
+}
