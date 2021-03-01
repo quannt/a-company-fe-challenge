@@ -1,8 +1,8 @@
 <template>
-  <div class="wrapper">
+  <button type="button" class="wrapper" role="button">
     <div class="step-number">{{ stepNumber }}</div>
     <div class="step-card-text">{{ stepCardText }}</div>
-  </div>
+  </button>
 </template>
 
 <script lang="ts">
@@ -51,6 +51,8 @@ export default {
   word-break: break-all;
   padding: 0.75rem;
   text-align: center;
+  cursor: pointer;
+  border-color: transparent;
 }
 .step-number {
   padding: 0.125rem 0.25rem;
