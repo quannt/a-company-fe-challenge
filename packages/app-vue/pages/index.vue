@@ -8,7 +8,11 @@
         :key="step.id"
         class="step-card-wrapper"
       >
-        <StepCard :step="step" :step-number="idx + 1" />
+        <StepCard
+          :step="step"
+          :step-number="idx + 1"
+          @click.native="handleStepCardClick(step)"
+        />
         <div class="arrow-wrapper">
           <Arrow />
         </div>
@@ -24,13 +28,18 @@
 </template>
 
 <script lang="ts">
-import { Scenario } from "@iaf/api"
+import { Scenario, Step } from "@iaf/api"
 
 export default {
   async asyncData() {
     const res = await fetch(`http://localhost:8080/scenario`)
     const { name, steps } = (await res.json()) as Scenario
     return { name, steps }
+  },
+  methods: {
+    handleStepCardClick(step: Step) {
+      console.log("clicked", step)
+    },
   },
 }
 </script>
