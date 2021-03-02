@@ -7,7 +7,8 @@
   background: black;
   color: white;
   border-radius: 16px;
-  padding: 5px 10px 4px;
+
+  border: 1px solid #D8D8D8;
 }
 
 .tooltip .tooltip-arrow {
@@ -81,9 +82,10 @@
 }
 
 .tooltip.popover .popover-inner {
-  background: #f9f9f9;
+  background: #fff;
   color: black;
-  padding: 24px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   border-radius: 5px;
   box-shadow: 0 5px 30px rgba(black, 0.1);
 }
@@ -102,4 +104,8 @@
   visibility: visible;
   opacity: 1;
   transition: opacity 0.15s;
+}
+
+.tooltip-target {
+  cursor: pointer;
 }

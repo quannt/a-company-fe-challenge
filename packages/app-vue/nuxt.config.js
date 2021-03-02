@@ -14,7 +14,10 @@ export default {
   css: ["@/assets/css/tooltip.css"],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [{ src: "~/plugins/v-tooltip.js", mode: "client" }],
+  plugins: [
+    { src: "~/plugins/v-tooltip.js", mode: "client" },
+    { src: "~/plugins/vue-select.js", mode: "client" }
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,

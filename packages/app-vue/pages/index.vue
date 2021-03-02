@@ -26,9 +26,21 @@
     </div>
 
     <div class="input-wrapper">
-      <label v-tooltip="'ffobar'" class="input-label">Input text</label>
+      <label class="input-label">Input text</label>
       <div class="input-group">
-        <div class="input-header">Given value</div>
+        <client-only>
+          <v-popover trigger="click" :auto-hide="false">
+            <div class="tooltip-target input-header">Given value</div>
+
+            <template slot="popover">
+              <div class="dropdown">
+                <div class="dropdown-item">Given value</div>
+                <div class="dropdown-item">Random email address</div>
+              </div>
+            </template>
+          </v-popover>
+        </client-only>
+
         <input class="input-element" type="text" />
       </div>
     </div>
@@ -37,6 +49,7 @@
 
 <script lang="ts">
 import { Scenario, Step } from "@iaf/api"
+import "vue-select/dist/vue-select.css"
 
 export default {
   async asyncData() {
@@ -125,5 +138,16 @@ svg {
   border: none;
   padding-left: 0.7rem;
   padding-right: 0.7rem;
+}
+
+.dropdown {
+  font-size: 14px;
+  color: #555;
+  letter-spacing: 0.7px;
+}
+
+.dropdown-item {
+  background: #eee;
+  padding: 0.5rem 1.5rem;
 }
 </style>
