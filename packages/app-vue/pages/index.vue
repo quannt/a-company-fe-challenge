@@ -67,7 +67,6 @@
 
 <script lang="ts">
 import { Scenario, Step } from "@iaf/api"
-import "vue-select/dist/vue-select.css"
 import Vue from "vue"
 
 export default Vue.extend({
