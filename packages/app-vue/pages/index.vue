@@ -13,6 +13,7 @@
           :step-number="idx + 1"
           @click.native="handleStepCardClick(step)"
         />
+        <StepEditor v-show="currentStepId === step.id" class="step-editor" />
         <div class="arrow-wrapper">
           <Arrow />
         </div>
@@ -24,8 +25,6 @@
         </div>
       </div>
     </div>
-
-    <StepEditor />
   </main>
 </template>
 
@@ -40,9 +39,16 @@ export default Vue.extend({
     return { name, steps }
   },
 
+  data() {
+    return {
+      currentStepId: null,
+    }
+  },
+
   methods: {
     handleStepCardClick(step: Step) {
-      console.log("clicked", step)
+      console.log(step.id)
+      this.currentStepId = step.id
     },
   },
 })
@@ -79,5 +85,9 @@ export default Vue.extend({
 }
 svg {
   margin-right: 0.25rem;
+}
+
+.step-editor {
+  width: 100vw;
 }
 </style>

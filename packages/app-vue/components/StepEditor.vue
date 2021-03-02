@@ -65,7 +65,6 @@ export default Vue.extend({
 .input-wrapper {
   background: #fff;
   padding: 2rem 1.5rem;
-  margin: 2rem -5rem 0 -5rem;
 }
 
 .input-label {

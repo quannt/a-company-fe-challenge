@@ -38,7 +38,6 @@ export default {
 
 <style scoped>
 .wrapper {
-  position: relative;
   width: 11.25rem;
   height: 7rem;
   border-radius: 0.25rem;
