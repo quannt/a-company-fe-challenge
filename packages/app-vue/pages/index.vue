@@ -29,13 +29,31 @@
       <label class="input-label">Input text</label>
       <div class="input-group">
         <client-only>
-          <v-popover trigger="click" :auto-hide="false">
-            <div class="tooltip-target input-header">Given value</div>
+          <v-popover
+            trigger="click"
+            :auto-hide="false"
+            :open.sync="showInputTypeDropdown"
+          >
+            <div class="tooltip-target input-header">
+              {{ isInputTypeFreeText ? "Given value" : "Random email address" }}
+            </div>
 
             <template slot="popover">
               <div class="dropdown">
-                <div class="dropdown-item">Given value</div>
-                <div class="dropdown-item">Random email address</div>
+                <div
+                  class="dropdown-item"
+                  :class="{ selected: isInputTypeFreeText }"
+                  @click="handleGivenValueMenuClick"
+                >
+                  Given value
+                </div>
+                <div
+                  class="dropdown-item"
+                  :class="{ selected: !isInputTypeFreeText }"
+                  @click="handleRandomEmailMenuClick"
+                >
+                  Random email address
+                </div>
               </div>
             </template>
           </v-popover>
@@ -50,19 +68,36 @@
 <script lang="ts">
 import { Scenario, Step } from "@iaf/api"
 import "vue-select/dist/vue-select.css"
+import Vue from "vue"
 
-export default {
+export default Vue.extend({
   async asyncData() {
     const res = await fetch(`http://localhost:8080/scenario`)
     const { name, steps } = (await res.json()) as Scenario
     return { name, steps }
   },
+
+  data() {
+    return {
+      isInputTypeFreeText: true,
+      showInputTypeDropdown: false
+    }
+  },
+
   methods: {
     handleStepCardClick(step: Step) {
       console.log("clicked", step)
+    },
+    handleGivenValueMenuClick() {
+      this.isInputTypeFreeText = true
+      this.showInputTypeDropdown = false
+    },
+    handleRandomEmailMenuClick() {
+      this.isInputTypeFreeText = false
+      this.showInputTypeDropdown = false
     }
   }
-}
+})
 </script>
 
 <style scoped>
@@ -147,7 +182,12 @@ svg {
 }
 
 .dropdown-item {
-  background: #eee;
+  background: #fff;
   padding: 0.5rem 1.5rem;
+  cursor: pointer;
+}
+
+.selected {
+  background: #eee;
 }
 </style>
