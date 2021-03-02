@@ -24,6 +24,14 @@
         </div>
       </div>
     </div>
+
+    <div class="input-wrapper">
+      <label class="input-label">Input text</label>
+      <div class="input-group">
+        <div class="input-header">Given value</div>
+        <input class="input-element" type="text" />
+      </div>
+    </div>
   </main>
 </template>
 
@@ -75,5 +83,47 @@ export default {
 }
 svg {
   margin-right: 0.25rem;
+}
+
+.input-wrapper {
+  background: #fff;
+  padding: 2rem 1.5rem;
+  margin: 2rem -5rem 0 -5rem;
+}
+
+.input-label {
+  display: block;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  margin-bottom: 0.625rem;
+}
+
+.input-group {
+  display: flex;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.input-header {
+  padding: 0.7rem 1rem;
+  background: #545b62;
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 0.7px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.input-element {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
 }
 </style>
