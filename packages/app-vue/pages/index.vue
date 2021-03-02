@@ -26,7 +26,7 @@
     </div>
 
     <div class="input-wrapper">
-      <label class="input-label">Input text</label>
+      <label v-tooltip="'ffobar'" class="input-label">Input text</label>
       <div class="input-group">
         <div class="input-header">Given value</div>
         <input class="input-element" type="text" />
@@ -47,8 +47,8 @@ export default {
   methods: {
     handleStepCardClick(step: Step) {
       console.log("clicked", step)
-    },
-  },
+    }
+  }
 }
 </script>
 

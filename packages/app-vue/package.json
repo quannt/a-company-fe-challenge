@@ -7,7 +7,7 @@
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
-    "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
+    "lint:style": "stylelint **/*.{vue,css}",
     "lint": "yarn lint:style",
     "test": "jest"
   },
@@ -17,6 +17,7 @@
     "@nuxtjs/fontawesome": "1.1.2",
     "core-js": "3.6.5",
     "nuxt": "2.14.7",
+    "v-tooltip": "^2.1.2",
     "vue": "2.6.12"
   },
   "devDependencies": {
