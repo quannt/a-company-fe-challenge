@@ -52,6 +52,7 @@ export default {
   text-align: center;
   cursor: pointer;
   border-color: transparent;
+  position: relative;
 }
 .step-number {
   padding: 0.125rem 0.25rem;
