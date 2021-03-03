@@ -26,6 +26,7 @@
           v-show="currentStepNumber > 0 && (Math.ceil((currentStepNumber)/4)*4 === Number(step.id) ||  Math.ceil((currentStepNumber)/4)*4 === Math.ceil((step.id)/4)*4 )"
           v-if="((idx + 1) % 4 === 0) || idx + 1 === steps.length"
           :key="`step-editor-${step.id}`"
+          :value="currentStep && currentStep.value"
           class="step-editor"
         />
       </template>
@@ -52,15 +53,15 @@ export default Vue.extend({
 
   data() {
     return {
-      currentStepId: "",
-      currentStepNumber: null
+      currentStepNumber: null,
+      currentStep: null
     }
   },
 
   methods: {
     handleStepCardClick(step: Step) {
-      this.currentStepId = step.id
       this.currentStepNumber = Number(step.id)
+      this.currentStep = step
     },
   },
 })

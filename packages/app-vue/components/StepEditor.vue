@@ -33,7 +33,7 @@
         </v-popover>
       </client-only>
 
-      <input class="input-element" type="text" />
+      <input class="input-element" type="text" :value="value" />
     </div>
   </div>
 </template>
@@ -42,6 +42,14 @@
 import Vue from "vue"
 
 export default Vue.extend({
+  props: {
+    value: {
+      type: String,
+      required: false,
+      default: () => "",
+    },
+  },
+
   data() {
     return {
       isInputTypeFreeText: true,
