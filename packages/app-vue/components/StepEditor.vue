@@ -33,7 +33,12 @@
         </v-popover>
       </client-only>
 
-      <input class="input-element" type="text" :value="value" />
+      <input
+        class="input-element"
+        type="text"
+        :value="value"
+        @input="handleUpdate"
+      />
     </div>
   </div>
 </template>
@@ -65,6 +70,9 @@ export default Vue.extend({
     handleRandomEmailMenuClick() {
       this.isInputTypeFreeText = false
       this.showInputTypeDropdown = false
+    },
+    handleUpdate(event) {
+      this.$emit("update:input", event.target.value)
     },
   },
 })

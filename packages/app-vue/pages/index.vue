@@ -28,6 +28,7 @@
           :key="`step-editor-${step.id}`"
           :value="currentStep && currentStep.value"
           class="step-editor"
+          @update:input="handleInputChange($event, currentStepNumber)"
         />
       </template>
       <div class="step-card-wrapper finish-card-wrapper">
@@ -63,6 +64,16 @@ export default Vue.extend({
       this.currentStepNumber = Number(step.id)
       this.currentStep = step
     },
+    handleInputChange (value, stepId) {
+
+      const stepIndex = this.steps.findIndex(step => String(step.id) === String(stepId))
+
+      if (stepIndex === -1) return
+      const step = this.steps[stepIndex]
+      step.value = value
+
+      this.$set(this.steps, stepIndex, step)
+    }
   },
 })
 </script>
