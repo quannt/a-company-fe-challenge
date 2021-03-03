@@ -22,8 +22,6 @@
         <hr v-if="(idx + 1) % 4 === 0" :key="`line-break-${step.id}`" class="line-break"></hr>
 
         <!-- Every 4 inputs, we put a step editor at the end, this editor will be shared among the 4 inputs -->
-        {{ Math.ceil((currentStepNumber)/4)*4 }}
-        {{ Number(step.id) }}
         <StepEditor
           v-show="currentStepNumber > 0 && (Math.ceil((currentStepNumber)/4)*4 === Number(step.id) ||  Math.ceil((currentStepNumber)/4)*4 === Math.ceil((step.id)/4)*4 )"
           v-if="((idx + 1) % 4 === 0) || idx + 1 === steps.length"
