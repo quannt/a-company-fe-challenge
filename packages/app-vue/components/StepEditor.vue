@@ -70,6 +70,7 @@ export default Vue.extend({
     handleRandomEmailMenuClick() {
       this.isInputTypeFreeText = false
       this.showInputTypeDropdown = false
+      this.$emit("update:inputType", "email")
     },
     handleUpdate(event) {
       this.$emit("update:input", event.target.value)

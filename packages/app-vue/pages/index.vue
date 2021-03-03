@@ -29,6 +29,7 @@
           :value="currentStep && currentStep.value"
           class="step-editor"
           @update:input="handleInputChange($event, currentStepNumber)"
+          @update:inputType="handleInputTypeChange($event, currentStepNumber)"
         />
       </template>
       <div class="step-card-wrapper finish-card-wrapper">
@@ -44,6 +45,11 @@
 <script lang="ts">
 import { Scenario, Step } from "@iaf/api"
 import Vue from "vue"
+
+type Email = {
+  id: string;
+  address: string;
+}
 
 export default Vue.extend({
   async asyncData() {
@@ -73,6 +79,15 @@ export default Vue.extend({
       step.value = value
 
       this.$set(this.steps, stepIndex, step)
+    },
+    async handleInputTypeChange (type, stepId) {
+      if (type === "email") {
+        const res = await fetch(`http://localhost:8080/email`)
+        const { address } = (await res.json()) as Email
+
+        this.handleInputChange(address, stepId)
+      }
+
     }
   },
 })
