@@ -60,8 +60,9 @@ export default Vue.extend({
 
   data() {
     return {
-      currentStepNumber: null,
-      currentStep: null
+      currentStepNumber: 0,
+      currentStep: {},
+      steps: []
     }
   },
 
@@ -70,9 +71,9 @@ export default Vue.extend({
       this.currentStepNumber = Number(step.id)
       this.currentStep = step
     },
-    handleInputChange (value, stepId) {
-
-      const stepIndex = this.steps.findIndex(step => String(step.id) === String(stepId))
+    handleInputChange (value: string, stepId: string) {
+      const steps = this.steps as Step[]
+      const stepIndex = steps.findIndex(step => String(step.id) === String(stepId))
 
       if (stepIndex === -1) return
       const step = this.steps[stepIndex]
@@ -80,7 +81,7 @@ export default Vue.extend({
 
       this.$set(this.steps, stepIndex, step)
     },
-    async handleInputTypeChange (type, stepId) {
+    async handleInputTypeChange (type: string, stepId: string) {
       if (type === "email") {
         const res = await fetch(`http://localhost:8080/email`)
         const { address } = (await res.json()) as Email

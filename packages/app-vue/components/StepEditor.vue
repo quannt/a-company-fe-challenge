@@ -13,7 +13,7 @@
           </div>
 
           <template slot="popover">
-            <div class="dropdown">
+            <div class="dropdown" data-testid="step-editor-dropdown">
               <div
                 class="dropdown-item"
                 :class="{ selected: isInputTypeFreeText }"
@@ -37,6 +37,7 @@
         class="input-element"
         type="text"
         :value="value"
+        data-testid="step-editor-input"
         @input="handleUpdate"
       />
     </div>
@@ -72,7 +73,7 @@ export default Vue.extend({
       this.showInputTypeDropdown = false
       this.$emit("update:inputType", "email")
     },
-    handleUpdate(event) {
+    handleUpdate(event: unknown) {
       this.$emit("update:input", event.target.value)
     },
   },
