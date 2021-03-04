@@ -55,6 +55,7 @@ export default Vue.extend({
   async asyncData() {
     const res = await fetch(`http://localhost:8080/scenario`)
     const { name, steps } = (await res.json()) as Scenario
+
     return { name, steps }
   },
 

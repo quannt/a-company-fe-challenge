@@ -12,7 +12,7 @@
     "type-check": "lerna run type-check",
     "test": "lerna run test",
     "build": "lerna run build",
-    "test-all": "yarn format:check && yarn lint && yarn type-check && yarn test && yarn build",
+    "test-all": "yarn type-check && yarn test && yarn build",
     "start:api": "yarn workspace @iaf/api start",
     "start:app-react": "yarn workspace @iaf/app-react start",
     "start:app-vue": "yarn workspace @iaf/app-vue start"
