@@ -71,7 +71,7 @@ beforeAll(() => server.listen())
 // (i.e. for testing one-time error scenarios)
 afterEach(() => server.resetHandlers())
 // clean up once the tests are done
-// afterAll(() => server.close())
+afterAll(() => server.close())
 
 test("renders correctly.", () => {
   render(index, {
@@ -79,12 +79,17 @@ test("renders correctly.", () => {
   })
 })
 
-test("input change reflects to step.", () => {
+test("input change reflects to step.", async () => {
   render(index, {
     stubs: ["FontAwesomeIcon"],
   })
 
-  const input = screen.findByTestId("step-editor-input")
-  fireEvent.change(input, { target: { value: "this is input from jest." } })
-  screen.findByText("this is input from jest.")
+  const step = await screen.findByTestId("step-card")
+  fireEvent.click(step)
+
+  const editorInput = await screen.findByTestId("step-editor-input")
+  fireEvent.change(editorInput, {
+    target: { value: "this is input from jest." },
+  })
+  await screen.findByText("this is input from jest.")
 })

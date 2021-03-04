@@ -7,6 +7,7 @@
         <div
           :key="step.id"
           class="step-card-wrapper"
+          data-testid="step-card"
         >
           <StepCard
             :step="step"
