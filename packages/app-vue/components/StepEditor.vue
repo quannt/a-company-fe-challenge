@@ -73,8 +73,9 @@ export default Vue.extend({
       this.showInputTypeDropdown = false
       this.$emit("update:inputType", "email")
     },
-    handleUpdate(event: unknown) {
-      this.$emit("update:input", event.target.value)
+    handleUpdate(event: Event) {
+      const target = event.target as HTMLInputElement
+      this.$emit("update:input", target.value)
     },
   },
 })

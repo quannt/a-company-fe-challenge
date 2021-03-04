@@ -76,7 +76,7 @@ export default Vue.extend({
       const stepIndex = steps.findIndex(step => String(step.id) === String(stepId))
 
       if (stepIndex === -1) return
-      const step = this.steps[stepIndex]
+      const step = this.steps[stepIndex] as Step
       step.value = value
 
       this.$set(this.steps, stepIndex, step)
